@@ -204,11 +204,11 @@ describe('/numbers', () => {
     });
   });
 
-  describe('GET /remainder?a={number}&b={number}', () => {
+  describe('POST /remainder', () => {
     xit('gives the remainder of dividing 18 by 5', (done) => {
       chai.request(server)
         .post('/numbers/remainder')
-        .query({ a: 18, b: 5 })
+        .send({ a: 18, b: 5 })
         .end((err, res) => {
           expect(err).to.equal(null);
           expect(res.status).to.equal(200);
@@ -231,7 +231,7 @@ describe('/numbers', () => {
 
     xit('gives the remainder of dividing 0 by a number', (done) => {
       chai.request(server)
-        .post('/numbers/remainer')
+        .post('/numbers/remainder')
         .send({ a: 0, b: 10 })
         .end((err, res) => {
           expect(err).to.equal(null);
